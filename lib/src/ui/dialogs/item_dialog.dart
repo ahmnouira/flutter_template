@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/src/theme/breakpoint.dart';
+import 'package:flutter_template/src/utils/logger.dart';
 
 class ItemDialog {
   final _nameController = TextEditingController();
@@ -12,7 +13,7 @@ class ItemDialog {
       onChange(_nameController.text);
       Navigator.of(context).pop();
     } catch (e) {
-      print('error $e');
+      Logger.error(e);
     }
     // check field
   }
@@ -21,7 +22,8 @@ class ItemDialog {
     return AlertDialog(
       title: const Text('Change Device Name'),
       shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(Breakpoint.xs)),
+        borderRadius: BorderRadius.circular(Breakpoint.xs),
+      ),
       scrollable: true,
       content: Column(children: [
         TextField(
