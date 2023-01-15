@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_template/src/ui/screens/home_screen.dart';
 
 // The root widget of the app
 class App extends StatelessWidget {
@@ -12,6 +13,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'FlutterApp',
       theme: ThemeData.dark(),
+      home: const HomeScreen(),
     );
   }
 }
