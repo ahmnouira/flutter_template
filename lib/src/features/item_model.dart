@@ -1,4 +1,4 @@
-import 'package:flutter_template/src/data/models/base_model.dart';
+import 'package:flutter_template/src/models/base_model.dart';
 
 class Item extends Entity {
   final String name;

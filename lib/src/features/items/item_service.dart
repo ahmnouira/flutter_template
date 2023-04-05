@@ -1,4 +1,4 @@
-import 'package:flutter_template/src/data/models/item_model.dart';
+import 'package:flutter_template/src/features/item_model.dart';
 
 class ItemService {
   final List<Item> _items = [];

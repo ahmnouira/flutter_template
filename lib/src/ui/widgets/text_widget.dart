@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_better_player_example/src/theme/breakpoint.dart';
+
+import '../../theme/breakpoint.dart';
 
 enum TextWidgetVariant { text, error }
 
