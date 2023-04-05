@@ -1,11 +1,11 @@
 import 'package:flutter_template/src/models/base_model.dart';
 
-class Item extends Entity {
+class ItemModel extends Entity {
   final String name;
 
-  Item({required super.id, required this.name});
+  ItemModel({required super.id, required this.name});
 
-  factory Item.fromJSON(Map<String, dynamic> json) => Item(
+  factory ItemModel.fromJSON(Map<String, dynamic> json) => ItemModel(
         id: json['id'] as String,
         name: '',
       );

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/src/ui/screens/home_screen.dart';
 
+import 'app_providers.dart';
+
 // The root widget of the app
 class App extends StatelessWidget {
   /// Creates an [App] instance.
@@ -8,12 +10,14 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      // Hiding the debug banner,
-      debugShowCheckedModeBanner: false,
-      title: 'FlutterApp',
-      theme: ThemeData.dark(),
-      home: const HomeScreen(),
+    return AppProviders(
+      child: MaterialApp(
+        // Hiding the debug banner,
+        debugShowCheckedModeBanner: false,
+        title: 'FlutterApp',
+        theme: ThemeData.dark(),
+        home: const HomeScreen(),
+      ),
     );
   }
 }
