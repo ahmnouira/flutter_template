@@ -1,12 +1,11 @@
 name: flutter_template
 description: Flutter template for my projects.
 
-publish_to: 'none' 
+publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.18.6 <3.0.0'
-
+  sdk: ">=2.18.6 <3.0.0"
 
 dependencies:
   flutter:
@@ -22,11 +21,7 @@ dev_dependencies:
   dart_code_metrics: ^5.4.0
 
 flutter:
-
   uses-material-design: true
 
   assets:
-   - assets/images/
-
-
-
+    - assets/images/
