@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class HSpace extends StatelessWidget {
+class AppHSpace extends StatelessWidget {
   final double? width;
 
-  const HSpace({super.key, this.width = 16});
+  const AppHSpace({super.key, this.width = 16});
 
   @override
   Widget build(BuildContext context) {

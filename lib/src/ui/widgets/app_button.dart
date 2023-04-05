@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/src/theme/breakpoint.dart';
+import 'package:flutter_template/src/theme/app_sizes.dart';
 
-class ButtonWidget extends StatelessWidget {
+class AppButton extends StatelessWidget {
   final String text;
 
   final void Function()? onPressed;
 
-  const ButtonWidget({
+  const AppButton({
     super.key,
     required this.text,
     this.onPressed,
@@ -15,13 +15,13 @@ class ButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(top: Breakpoint.md),
+      padding: const EdgeInsets.only(top: AppSizes.md),
       child: ElevatedButton(
         onPressed: onPressed,
         clipBehavior: Clip.antiAlias,
         child: Text(
           text,
-          style: const TextStyle(fontSize: Breakpoint.md),
+          style: const TextStyle(fontSize: AppSizes.md),
         ),
       ),
     );

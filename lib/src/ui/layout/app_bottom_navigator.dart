@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'bottom_navigator.item.dart';
+import 'app_bottom_navigator.item.dart';
 
-class BottomNavigatorWidget extends StatelessWidget {
+class AppBottomNavigator extends StatelessWidget {
   final int currentIndex;
   final void Function(int)? onTap;
-  final List<BottomNavigatorItem>? items;
+  final List<AppBottomNavigatorItem>? items;
 
-  const BottomNavigatorWidget({
+  const AppBottomNavigator({
     super.key,
     required this.currentIndex,
     this.onTap,
@@ -15,7 +15,7 @@ class BottomNavigatorWidget extends StatelessWidget {
   });
 
   List<BottomNavigationBarItem> _buildBottomNavigationBarItem() {
-    late List<BottomNavigatorItem> list;
+    late List<AppBottomNavigatorItem> list;
 
     if (items!.isNotEmpty) {
       list = List.from(items!);

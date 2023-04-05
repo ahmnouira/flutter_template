@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class VSpace extends StatelessWidget {
+class AppVSpace extends StatelessWidget {
   final double? height;
 
-  const VSpace({super.key, this.height = 16});
+  const AppVSpace({super.key, this.height = 16});
 
   @override
   Widget build(BuildContext context) {

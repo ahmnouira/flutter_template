@@ -1,4 +1,7 @@
-class Breakpoint {
+class AppSizes {
+  /// 4.0
+  static const xss = 4.0;
+
   /// 8.0
   static const xs = 8.0;
 

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SliderWidget extends StatelessWidget {
+class AppSlider extends StatelessWidget {
   final double value;
   final Color color;
   final void Function(double value)? onChanged;
 
-  const SliderWidget({
+  const AppSlider({
     super.key,
     required this.value,
     required this.color,

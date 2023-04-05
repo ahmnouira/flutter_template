@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class TimeWidget extends StatelessWidget {
+class AppTime extends StatelessWidget {
   final TimeOfDay selected;
 
   final void Function(TimeOfDay selected) onSelect;
 
-  const TimeWidget({super.key, required this.onSelect, required this.selected});
+  const AppTime({super.key, required this.onSelect, required this.selected});
 
   @override
   Widget build(BuildContext context) {

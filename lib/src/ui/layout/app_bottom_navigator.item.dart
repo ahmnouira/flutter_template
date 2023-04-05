@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
-class BottomNavigatorItem {
+class AppBottomNavigatorItem {
   final IconData icon;
   final String? label;
   final String? tooltip;
 
-  BottomNavigatorItem({required this.icon, this.label, this.tooltip});
+  AppBottomNavigatorItem({required this.icon, this.label, this.tooltip});
 }
 
-List<BottomNavigatorItem> bottomNavigatorList = [
-  BottomNavigatorItem(
+List<AppBottomNavigatorItem> bottomNavigatorList = [
+  AppBottomNavigatorItem(
     icon: Icons.home,
     label: 'Items',
     tooltip: 'Explore Items',
   ),
-  BottomNavigatorItem(
+  AppBottomNavigatorItem(
     icon: Icons.account_circle,
     label: 'Profile',
   ),

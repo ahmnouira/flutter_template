@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class AvatarWidget extends StatelessWidget {
+class AppAvatar extends StatelessWidget {
   final double imageRadius;
   final ImageProvider? imageProvider;
 
-  const AvatarWidget({Key? key, this.imageProvider, this.imageRadius = 20})
+  const AppAvatar({Key? key, this.imageProvider, this.imageRadius = 20})
       : super(key: key);
 
   @override

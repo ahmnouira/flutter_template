@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/src/theme/breakpoint.dart';
+import 'package:flutter_template/src/theme/app_sizes.dart';
 
-class TextFieldWidget extends StatelessWidget {
+class AppTextField extends StatelessWidget {
   final String placeholder;
   final bool obscureText;
   final void Function(String)? onChanged;
   final TextInputType? keyboardType;
 
-  const TextFieldWidget({
+  const AppTextField({
     super.key,
     required this.placeholder,
     this.onChanged,
@@ -26,7 +26,7 @@ class TextFieldWidget extends StatelessWidget {
       obscureText: obscureText,
       onChanged: onChanged,
       style: const TextStyle(
-        fontSize: Breakpoint.md,
+        fontSize: AppSizes.md,
         color: Colors.white,
       ),
     );

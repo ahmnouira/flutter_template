@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/src/theme/breakpoint.dart';
+import 'package:flutter_template/src/theme/app_sizes.dart';
 import 'package:flutter_template/src/utils/logger.dart';
 
 class ItemDialog {
@@ -22,7 +22,7 @@ class ItemDialog {
     return AlertDialog(
       title: const Text('Change Device Name'),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(Breakpoint.xs),
+        borderRadius: BorderRadius.circular(AppSizes.xs),
       ),
       scrollable: true,
       content: Column(children: [
@@ -31,7 +31,7 @@ class ItemDialog {
           decoration: const InputDecoration(hintText: 'Change name'),
         ),
         const SizedBox(
-          height: Breakpoint.md,
+          height: AppSizes.sm,
         ),
         ElevatedButton(
           onPressed: () => _submit(context, onChange),

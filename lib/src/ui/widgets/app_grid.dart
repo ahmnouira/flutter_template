@@ -2,35 +2,35 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
-enum GridWidgetType { fixedCrossAxis, maxCrossAxis }
+enum AppGridType { fixedCrossAxis, maxCrossAxis }
 
-class GirdWidget<T> extends StatefulWidget {
+class AppGrid<T> extends StatefulWidget {
   final List<T> list;
 
   final Widget Function(T item) builder;
 
-  final GridWidgetType type;
+  final AppGridType type;
 
   final EdgeInsetsGeometry padding;
   final int crossAxisCount;
 
   final double maxCrossAxisExtent;
 
-  const GirdWidget({
+  const AppGrid({
     super.key,
     required this.list,
     required this.builder,
     this.crossAxisCount = 2,
     this.maxCrossAxisExtent = 500,
-    this.type = GridWidgetType.fixedCrossAxis,
+    this.type = AppGridType.fixedCrossAxis,
     this.padding = const EdgeInsets.only(right: 8, left: 8),
   });
 
   @override
-  State<GirdWidget> createState() => _GirdWidgetState<T>();
+  State<AppGrid> createState() => _AppGridState<T>();
 }
 
-class _GirdWidgetState<T> extends State<GirdWidget<T>> {
+class _AppGridState<T> extends State<AppGrid<T>> {
   late ScrollController _controller;
 
   @override
@@ -63,7 +63,7 @@ class _GirdWidgetState<T> extends State<GirdWidget<T>> {
   }
 
   SliverGridDelegate _getGridDelegate() {
-    if (widget.type == GridWidgetType.maxCrossAxis) {
+    if (widget.type == AppGridType.maxCrossAxis) {
       return SliverGridDelegateWithMaxCrossAxisExtent(
         maxCrossAxisExtent: widget.maxCrossAxisExtent,
       );

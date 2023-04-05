@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/src/ui/screens/home_screen.dart';
 
 import 'app_providers.dart';
 import 'theme/app_theme.dart';
+import 'ui/layout/main_tab.dart';
 
 // The root widget of the app
 class App extends StatelessWidget {
@@ -19,7 +19,7 @@ class App extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'FlutterApp',
         theme: theme,
-        home: const HomeScreen(),
+        home: const MainTab(),
       ),
     );
   }
