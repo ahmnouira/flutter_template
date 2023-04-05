@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/src/features/items/screens/items_screem.dart';
 
+import '../../features/items/screens/items_screen.dart';
+import '../../features/user/screens/profile_screen.dart';
 import '../../providers/app_state_provider.dart';
 
 import 'app_bottom_navigator.dart';
 
 final tabs = [
   const ItemsScreen(),
+  const ProfileScreen(),
 ];
 
 class MainTab extends StatelessWidget {

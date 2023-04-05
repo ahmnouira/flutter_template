@@ -8,7 +8,6 @@ Widget buildTitle(String title) {
     text: title,
     color: Colors.black,
     overflow: TextOverflow.ellipsis,
-    maxLines: 1,
   );
 }
 

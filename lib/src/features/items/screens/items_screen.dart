@@ -6,6 +6,10 @@ class ItemsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppPage(title: 'Items', child: Container());
+    return AppPage(
+      title: 'Items',
+      simpleAppBar: false,
+      child: Container(),
+    );
   }
 }
