@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class DismissibleWidget extends StatelessWidget {
+class AppDismissible extends StatelessWidget {
   final String id;
   final Widget child;
   final void Function()? onTap;
   final void Function() onDismiss;
 
-  const DismissibleWidget({
+  const AppDismissible({
     super.key,
     required this.child,
     required this.id,

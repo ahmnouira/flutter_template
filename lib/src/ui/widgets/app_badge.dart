@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/src/ui/widgets/app_text.dart';
 
-class IconBadge extends StatelessWidget {
+class AppBadge extends StatelessWidget {
   final void Function()? onTap;
 
-  const IconBadge({super.key, required this.onTap});
+  const AppBadge({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
