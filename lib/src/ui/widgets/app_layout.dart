@@ -32,7 +32,7 @@ class AppLayout {
     );
   }
 
-  static AppBar buildTransparentAppBar(BuildContext context, String title) {
+  static AppBar buildTransparentAppBar(String title) {
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0.0,
@@ -40,7 +40,7 @@ class AppLayout {
     );
   }
 
-  static AppBar buildAppBar(BuildContext context, String title) {
+  static AppBar buildAppBar(String title) {
     return AppBar(
       backgroundColor: Colors.white,
       iconTheme: const IconThemeData(

@@ -37,7 +37,7 @@ class AppPage<T> extends StatelessWidget {
         appBar: showAppBar
             ? simpleAppBar
                 ? AppLayout.buildSimpleAppBar(context, title)
-                : AppLayout.buildAppBar(context, title)
+                : AppLayout.buildAppBar(title)
             : null,
         body: SafeArea(
           child: child,

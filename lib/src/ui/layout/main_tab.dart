@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_template/src/features/profile/data/profile_service.dart';
 
 import '../../features/items/screens/items_screen.dart';
-import '../../features/user/screens/profile_screen.dart';
+import '../../features/profile/screens/profile_screen.dart';
 import '../../providers/app_state_provider.dart';
 
 import 'app_bottom_navigator.dart';
 
 final tabs = [
   const ItemsScreen(),
-  const ProfileScreen(),
+  const ProfileScreen(
+    service: ProfileService(),
+  ),
 ];
 
 class MainTab extends StatelessWidget {
