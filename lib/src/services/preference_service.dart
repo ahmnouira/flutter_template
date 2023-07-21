@@ -1,6 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../features/user/models/user.dart';
+import '../features/profile/models/user.dart';
 
 class PreferenceService {
   Future<SharedPreferences> getInstance() async {
@@ -32,7 +32,6 @@ class PreferenceService {
   Future<void> saveUser(User user, String token) async {
     final pref = await getInstance();
     pref.setString('id', user.id);
-    pref.setString('name', user.name);
     pref.setString('token', token);
   }
 }
