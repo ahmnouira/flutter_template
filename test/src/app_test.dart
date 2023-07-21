@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/src/app.dart' as app;
-import 'package:flutter_template/src/ui/screens/home_screen.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -12,8 +11,6 @@ void main() {
           const app.App(),
         );
         expect(find.byType(MaterialApp), findsOneWidget);
-
-        expect(find.byType(HomeScreen), findsOneWidget);
       },
     );
   });

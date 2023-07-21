@@ -24,6 +24,7 @@ class Entity {
     final map = toJSON();
     // adding the id
     map['id'] = id;
+
     return map.toString();
   }
 }

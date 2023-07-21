@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class DismissibleWidget extends StatelessWidget {
   final String id;
   final Widget child;
