@@ -4,21 +4,15 @@ import 'package:flutter_template/src/theme/app_colors.dart';
 class AppText extends StatelessWidget {
   final String text;
   final double? fontSize;
-
   final Color? color;
-
   final FontWeight? fontWeight;
-
   final int? maxLines;
-
   final TextAlign? textAlign;
-
   final TextDecoration? decoration;
-
   final bool? softWrap;
   final TextOverflow? overflow;
-
   final TextDecorationStyle? decorationStyle;
+  final EdgeInsetsGeometry padding;
 
   const AppText({
     super.key,
@@ -32,6 +26,7 @@ class AppText extends StatelessWidget {
     this.fontSize,
     this.decorationStyle,
     this.decoration,
+    this.padding = const EdgeInsets.all(0),
   });
 
   const AppText.error({
@@ -46,6 +41,7 @@ class AppText extends StatelessWidget {
     this.overflow,
     this.decorationStyle,
     this.decoration,
+    this.padding = const EdgeInsets.all(0),
   });
 
   const AppText.v14({
@@ -60,6 +56,7 @@ class AppText extends StatelessWidget {
     this.overflow,
     this.decoration,
     this.decorationStyle,
+    this.padding = const EdgeInsets.all(0),
   });
 
   const AppText.v16({
@@ -74,6 +71,7 @@ class AppText extends StatelessWidget {
     this.overflow,
     this.decoration,
     this.decorationStyle,
+    this.padding = const EdgeInsets.all(0),
   });
 
   const AppText.v18({
@@ -88,6 +86,7 @@ class AppText extends StatelessWidget {
     this.overflow,
     this.decoration,
     this.decorationStyle,
+    this.padding = const EdgeInsets.all(0),
   });
 
   const AppText.v22({
@@ -102,23 +101,42 @@ class AppText extends StatelessWidget {
     this.overflow,
     this.decoration,
     this.decorationStyle,
+    this.padding = const EdgeInsets.all(0),
+  });
+
+  const AppText.subtitle({
+    super.key,
+    required this.text,
+    this.fontSize = 15,
+    this.color = AppColors.primary,
+    this.fontWeight = FontWeight.w600,
+    this.textAlign = TextAlign.start,
+    this.maxLines = 50,
+    this.softWrap,
+    this.overflow,
+    this.decoration,
+    this.decorationStyle,
+    this.padding = const EdgeInsets.all(0),
   });
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      text,
-      softWrap: softWrap,
-      overflow: overflow,
-      style: TextStyle(
-        fontWeight: fontWeight,
-        fontSize: fontSize,
-        color: color,
-        decoration: decoration,
-        decorationStyle: decorationStyle,
+    return Padding(
+      padding: padding,
+      child: Text(
+        text,
+        softWrap: softWrap,
+        overflow: overflow,
+        style: TextStyle(
+          fontWeight: fontWeight,
+          fontSize: fontSize,
+          color: color,
+          decoration: decoration,
+          decorationStyle: decorationStyle,
+        ),
+        maxLines: maxLines,
+        textAlign: textAlign,
       ),
-      maxLines: maxLines,
-      textAlign: textAlign,
     );
   }
 }
