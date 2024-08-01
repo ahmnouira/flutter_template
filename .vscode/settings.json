@@ -1,6 +1,4 @@
 {
-  "cSpell.words": [
-    "firestore",
-    "RGBO"
-  ]
+  "cSpell.words": ["firestore", "RGBO"],
+  "java.configuration.updateBuildConfiguration": "automatic"
 }
