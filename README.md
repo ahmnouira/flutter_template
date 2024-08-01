@@ -2,17 +2,14 @@
 
 Flutter template for my projects.
 
-## Open Emulators
+## Open Android Emulator
 
 ```sh
 emulator -list-avds
-```
-
-```sh
 emulator -avd Small_Phone_API_35
 ```
 
-With one command
+Using one command
 
 ```sh
 emulator -avd `emulator -list-avds | tail -n 1` 
