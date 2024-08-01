@@ -5,7 +5,7 @@ publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.0.5 <4.0.0"
+  sdk: '>=3.4.4 <4.0.0'
 
 dependencies:
   dio: ^5.5.0+1
@@ -15,7 +15,7 @@ dependencies:
   google_fonts: ^4.0.4
   path_provider: ^2.1.4
   provider: ^6.1.2
-  shared_preferences: ^2.3.0
+  shared_preferences: ^2.3.1
 
 dev_dependencies:
   dart_code_metrics: ^5.7.6
