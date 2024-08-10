@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../models/user.dart';
+import '../models/app_user.dart';
 
 class ProfileProvider extends ChangeNotifier {
   bool _didSelectUser = false;
@@ -15,10 +15,10 @@ class ProfileProvider extends ChangeNotifier {
   String _token = '';
   String get token => _token;
 
-  User _user = User.empty();
-  User get user => _user;
+  AppUser _user = AppUser.empty();
+  AppUser get user => _user;
 
-  set user(User user) {
+  set user(AppUser user) {
     _user = user;
     notifyListeners();
   }
@@ -66,7 +66,7 @@ class ProfileProvider extends ChangeNotifier {
   void logout() {
     loggedIn = false;
     token = '';
-    user = const User(id: '', email: '');
+    user = AppUser.empty();
     notifyListeners();
   }
 

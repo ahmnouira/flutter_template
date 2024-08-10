@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_template/src/services/http_service.dart';
 import 'package:flutter_template/src/utils/logger.dart';
 
-import '../../models/user.dart';
+import '../../models/app_user.dart';
 
 class RemoteService {
   final _http = HttpService();
@@ -37,7 +37,7 @@ class RemoteService {
   }
 
   Future<dynamic> edit({
-    required User user,
+    required AppUser user,
     required String token,
   }) async {
     try {
