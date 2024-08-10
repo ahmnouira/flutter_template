@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_template/src/theme/app_colors.dart';
+import 'package:eco_pat/src/theme/app_colors.dart';
+import 'package:eco_pat/src/theme/app_sizes.dart';
+import 'package:eco_pat/src/ui/widgets/app_hero.dart';
 import 'app_text.dart';
 
 Widget buildTitle(String title) {
@@ -37,6 +39,18 @@ class AppLayout {
       backgroundColor: Colors.transparent,
       elevation: 0.0,
       title: buildTitle(title),
+      leading: const Padding(
+          padding: EdgeInsets.symmetric(horizontal: AppSizes.md),
+          child: AppHero()),
+    );
+  }
+
+  static AppBar buildWhiteAppBar(String title) {
+    return AppBar(
+      backgroundColor: AppColors.white,
+      elevation: 1.0,
+      title: buildTitle(title),
+      leading: const AppHero(),
     );
   }
 

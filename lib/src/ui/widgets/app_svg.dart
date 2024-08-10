@@ -20,6 +20,8 @@ class AppSvg extends StatelessWidget {
       path,
       semanticsLabel: label,
       theme: SvgTheme(currentColor: color),
+      height: 15,
+      width: 15,
     );
   }
 }

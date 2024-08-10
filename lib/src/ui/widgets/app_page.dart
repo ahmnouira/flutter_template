@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/src/ui/widgets/app_layout.dart';
-import 'package:flutter_template/src/utils/screen.dart';
+import 'package:eco_pat/src/ui/widgets/app_layout.dart';
+import 'package:eco_pat/src/utils/screen.dart';
 
 class AppPage<T> extends StatelessWidget {
   final String title;
@@ -30,13 +30,13 @@ class AppPage<T> extends StatelessWidget {
       Container(
         height: Screen.height,
         width: Screen.width,
-        color: Theme.of(context).colorScheme.background,
+        color: Theme.of(context).colorScheme.surfaceBright,
       ),
       Scaffold(
         backgroundColor: backgroundColor,
         appBar: showAppBar
             ? simpleAppBar
-                ? AppLayout.buildSimpleAppBar(context, title)
+                ? AppLayout.buildTransparentAppBar(title)
                 : AppLayout.buildAppBar(title)
             : null,
         body: SafeArea(

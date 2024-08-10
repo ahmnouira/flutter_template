@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/src/theme/app_colors.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:eco_pat/src/theme/app_colors.dart';
 
 class AppText extends StatelessWidget {
   final String text;
@@ -13,6 +14,8 @@ class AppText extends StatelessWidget {
   final TextOverflow? overflow;
   final TextDecorationStyle? decorationStyle;
   final EdgeInsetsGeometry padding;
+  final double? letterSpacing;
+  final double? height;
 
   const AppText({
     super.key,
@@ -26,52 +29,77 @@ class AppText extends StatelessWidget {
     this.fontSize,
     this.decorationStyle,
     this.decoration,
+    this.letterSpacing,
     this.padding = const EdgeInsets.all(0),
+    this.height,
   });
 
   const AppText.error({
     super.key,
     required this.text,
-    this.fontSize = 14,
-    this.color = AppColors.primary,
-    this.fontWeight = FontWeight.bold,
-    this.textAlign = TextAlign.center,
+    this.fontSize = 15,
+    this.color = AppColors.error,
+    this.fontWeight = FontWeight.w600,
+    this.textAlign = TextAlign.start,
     this.maxLines = 1,
     this.softWrap,
     this.overflow,
     this.decorationStyle,
     this.decoration,
+    this.letterSpacing,
     this.padding = const EdgeInsets.all(0),
+    this.height,
+  });
+
+  const AppText.v15({
+    super.key,
+    required this.text,
+    this.fontSize = 15,
+    this.color = Colors.black,
+    this.fontWeight = FontWeight.w500,
+    this.textAlign = TextAlign.start,
+    this.maxLines = 1,
+    this.softWrap,
+    this.overflow,
+    this.decoration,
+    this.decorationStyle,
+    this.letterSpacing = 1,
+    this.padding = const EdgeInsets.all(0),
+    this.height,
   });
 
   const AppText.v14({
     super.key,
     required this.text,
     this.fontSize = 14,
-    this.color = Colors.black,
-    this.fontWeight = FontWeight.bold,
-    this.textAlign = TextAlign.center,
+    this.color = AppColors.black,
+    this.fontWeight = FontWeight.w600,
+    this.textAlign = TextAlign.start,
     this.maxLines = 1,
     this.softWrap,
     this.overflow,
     this.decoration,
     this.decorationStyle,
+    this.letterSpacing,
     this.padding = const EdgeInsets.all(0),
+    this.height,
   });
 
   const AppText.v16({
     super.key,
     required this.text,
     this.fontSize = 16,
-    this.color = AppColors.primary,
-    this.fontWeight = FontWeight.bold,
-    this.textAlign = TextAlign.center,
+    this.color = AppColors.black,
+    this.fontWeight = FontWeight.w600,
+    this.textAlign = TextAlign.start,
     this.maxLines = 1,
     this.softWrap,
     this.overflow,
     this.decoration,
     this.decorationStyle,
+    this.letterSpacing,
     this.padding = const EdgeInsets.all(0),
+    this.height,
   });
 
   const AppText.v18({
@@ -86,13 +114,15 @@ class AppText extends StatelessWidget {
     this.overflow,
     this.decoration,
     this.decorationStyle,
+    this.letterSpacing,
     this.padding = const EdgeInsets.all(0),
+    this.height,
   });
 
-  const AppText.v22({
+  const AppText.v20({
     super.key,
     required this.text,
-    this.fontSize = 22,
+    this.fontSize = 20,
     this.color = AppColors.primary,
     this.fontWeight = FontWeight.w600,
     this.textAlign = TextAlign.start,
@@ -101,22 +131,43 @@ class AppText extends StatelessWidget {
     this.overflow,
     this.decoration,
     this.decorationStyle,
+    this.letterSpacing = 1.0,
     this.padding = const EdgeInsets.all(0),
+    this.height,
   });
 
-  const AppText.subtitle({
+  const AppText.v23({
     super.key,
     required this.text,
-    this.fontSize = 15,
-    this.color = AppColors.primary,
+    this.fontSize = 23,
+    this.color = Colors.black,
     this.fontWeight = FontWeight.w600,
+    this.textAlign = TextAlign.start,
+    this.maxLines = 1,
+    this.softWrap,
+    this.overflow,
+    this.decoration,
+    this.decorationStyle,
+    this.letterSpacing = 0.05,
+    this.padding = const EdgeInsets.all(0),
+    this.height,
+  });
+
+  const AppText.v30({
+    super.key,
+    required this.text,
+    this.fontSize = 30,
+    this.color = AppColors.black,
+    this.fontWeight = FontWeight.w700,
     this.textAlign = TextAlign.start,
     this.maxLines = 50,
     this.softWrap,
     this.overflow,
     this.decoration,
     this.decorationStyle,
+    this.letterSpacing,
     this.padding = const EdgeInsets.all(0),
+    this.height,
   });
 
   @override
@@ -127,12 +178,14 @@ class AppText extends StatelessWidget {
         text,
         softWrap: softWrap,
         overflow: overflow,
-        style: TextStyle(
+        style: GoogleFonts.urbanist(
           fontWeight: fontWeight,
           fontSize: fontSize,
           color: color,
           decoration: decoration,
           decorationStyle: decorationStyle,
+          letterSpacing: letterSpacing,
+          height: height,
         ),
         maxLines: maxLines,
         textAlign: textAlign,

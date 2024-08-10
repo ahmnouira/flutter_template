@@ -4,13 +4,13 @@ import 'package:eco_pat/src/ui/widgets/app_result.dart';
 
 import './app_loading.dart';
 
-class AppFuture<T> extends StatelessWidget {
-  final Future<T>? future;
+class AppStream<T> extends StatelessWidget {
+  final Future<T> future;
   final Function(T data) builder;
   final Widget empty;
   final double padding;
 
-  const AppFuture({
+  const AppStream({
     super.key,
     required this.future,
     required this.builder,
@@ -20,8 +20,8 @@ class AppFuture<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: future,
+    return StreamBuilder(
+      stream: Stream.fromFuture(future),
       builder: (context, AsyncSnapshot<T> snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           if (snapshot.hasError) {

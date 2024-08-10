@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/src/ui/widgets/app_text.dart';
+import 'package:eco_pat/src/ui/widgets/app_text.dart';
 
 class AppBadge extends StatelessWidget {
   final void Function()? onTap;

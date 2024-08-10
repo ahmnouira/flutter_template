@@ -1,89 +1,89 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:eco_pat/src/theme/app_sizes.dart';
 
 enum AppGridType { fixedCrossAxis, maxCrossAxis }
 
-class AppGrid<T> extends StatefulWidget {
-  final List<T> list;
-
-  final Widget Function(T item) builder;
-
+class AppGrid<T> extends StatelessWidget {
+  final List<T> items;
+  final Widget? Function(T item, int index) builder;
   final AppGridType type;
-
   final EdgeInsetsGeometry padding;
   final int crossAxisCount;
-
+  final bool? primary;
+  final ScrollPhysics? physics;
+  final bool shrinkWrap;
+  final double childAspectRatio;
+  final double crossAxisSpacing;
+  final double mainAxisSpacing;
   final double maxCrossAxisExtent;
+  final ScrollController? controller;
 
-  const AppGrid({
+  const AppGrid(
+      {super.key,
+      required this.items,
+      required this.builder,
+      this.controller,
+      this.crossAxisCount = 2,
+      this.childAspectRatio = 3 / 5,
+      this.crossAxisSpacing = 0,
+      this.mainAxisSpacing = 0,
+      this.maxCrossAxisExtent = 500,
+      this.type = AppGridType.fixedCrossAxis,
+      this.padding = const EdgeInsets.only(right: 8, left: 8),
+      this.physics,
+      this.primary,
+      this.shrinkWrap = false});
+
+  const AppGrid.nested({
     super.key,
-    required this.list,
+    required this.items,
     required this.builder,
+    this.controller,
+
+    /// Lets Flutter know that isn't the primary scroll view.
+    this.primary = false,
+
+    /// To create a fixed-length scrollable list of items,
+    ///  This gives it a fixed height
+    this.shrinkWrap = true,
+
+    /// Disable the scrolling for this list view.
+    /// That will propagate up to the list view
+    this.physics = const NeverScrollableScrollPhysics(),
     this.crossAxisCount = 2,
+    this.childAspectRatio = 3 / 5,
+    this.crossAxisSpacing = 0,
+    this.mainAxisSpacing = 0,
     this.maxCrossAxisExtent = 500,
     this.type = AppGridType.fixedCrossAxis,
     this.padding = const EdgeInsets.only(right: 8, left: 8),
   });
 
-  @override
-  State<AppGrid> createState() => _AppGridState<T>();
-}
-
-class _AppGridState<T> extends State<AppGrid<T>> {
-  late ScrollController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    // Initialize the scroll controller
-    _controller = ScrollController();
-    // Add a listener to the controller
-    _controller.addListener(_scrollListener);
-  }
-
-  void _scrollListener() {
-    // The user scroll to very bottom
-
-    if (_controller.offset >= _controller.position.maxScrollExtent &&
-        !_controller.position.outOfRange) {
-      log('At the bottom!');
-    }
-
-    if (_controller.offset <= _controller.position.maxScrollExtent &&
-        !_controller.position.outOfRange) {
-      log('At the top!');
-    }
-  }
-
-  @override
-  void dispose() {
-    _controller.removeListener(_scrollListener);
-    super.dispose();
-  }
-
   SliverGridDelegate _getGridDelegate() {
-    if (widget.type == AppGridType.maxCrossAxis) {
+    if (type == AppGridType.maxCrossAxis) {
       return SliverGridDelegateWithMaxCrossAxisExtent(
-        maxCrossAxisExtent: widget.maxCrossAxisExtent,
-      );
+          maxCrossAxisExtent: maxCrossAxisExtent, mainAxisExtent: 174);
     } else {
       return SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: widget.crossAxisCount,
-      );
+          crossAxisCount: crossAxisCount,
+          childAspectRatio: childAspectRatio,
+          mainAxisSpacing: mainAxisSpacing,
+          crossAxisSpacing: crossAxisSpacing,
+          mainAxisExtent: 174);
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: widget.padding,
-      child: GridView.builder(
-        controller: _controller,
-        gridDelegate: _getGridDelegate(),
-        itemBuilder: (context, index) => widget.builder(widget.list[index]),
-        itemCount: widget.list.length,
-      ),
+    return GridView.builder(
+      controller: controller,
+      gridDelegate: _getGridDelegate(),
+      itemBuilder: (context, index) => builder(items[index], index),
+      itemCount: items.length,
+      shrinkWrap: shrinkWrap,
+      primary: primary,
+      physics: physics,
+      padding: const EdgeInsets.all(AppSizes.xs),
     );
   }
 }

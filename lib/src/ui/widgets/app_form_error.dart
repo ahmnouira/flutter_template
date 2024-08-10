@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/src/ui/widgets/app_text.dart';
+import 'package:eco_pat/src/theme/app_sizes.dart';
+import 'package:eco_pat/src/ui/widgets/app_text.dart';
 
 class AppFormError extends StatelessWidget {
   final String? error;
@@ -9,9 +10,13 @@ class AppFormError extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [AppText.error(text: error!)],
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        AppText.error(
+          text: error!,
+          padding: const EdgeInsets.only(bottom: AppSizes.md),
+        ),
+      ],
     );
   }
 }
