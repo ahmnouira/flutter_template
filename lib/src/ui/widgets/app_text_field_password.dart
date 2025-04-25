@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:eco_pat/src/ui/widgets/app_text_field.dart';
+import 'package:flutter_template/src/ui/widgets/app_text_field.dart';
 
 class AppTextFieldPassword extends StatefulWidget {
   final Function(String value) onChange;
   final bool showLabel;
+  final String? placeholder;
 
   const AppTextFieldPassword({
     super.key,
     required this.onChange,
     this.showLabel = true,
+    this.placeholder = 'Entrez votre mot de passe',
   });
 
   @override
@@ -23,6 +25,7 @@ class _AppTextFieldPasswordState extends State<AppTextFieldPassword> {
     return AppTextField.password(
       onChanged: widget.onChange,
       obscureText: _obscureText,
+      placeholder: widget.placeholder,
       label: widget.showLabel ? 'Mot de passe' : null,
       onVisible: () {
         setState(() {

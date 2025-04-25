@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:eco_pat/src/assets/assets.dart';
-import 'package:eco_pat/src/theme/app_sizes.dart';
-import 'package:eco_pat/src/ui/widgets/app_h_space.dart';
-import 'package:eco_pat/src/ui/widgets/app_text.dart';
+import 'package:flutter_template/src/assets/assets.dart';
+import 'package:flutter_template/src/theme/app_sizes.dart';
+import 'package:flutter_template/src/ui/widgets/app_h_space.dart';
+import 'package:flutter_template/src/ui/widgets/app_text.dart';
 
 class AppGoogleButton extends StatelessWidget {
   final void Function() onPressed;

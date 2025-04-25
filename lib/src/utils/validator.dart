@@ -1,5 +1,7 @@
 class Validator {
-  const Validator();
+  final String? name;
+
+  const Validator(this.name);
 
   static bool isEmpty(String value) {
     return value.trim().isEmpty;
@@ -16,6 +18,12 @@ class Validator {
   static bool isEmail(String email) {
     return RegExp(
       r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
+    ).hasMatch(email);
+  }
+
+  static bool isValidEmail(String email) {
+    return RegExp(
+      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@lesmoutonsdelouest.fr",
     ).hasMatch(email);
   }
 
@@ -42,5 +50,17 @@ class Validator {
     }
 
     return equal;
+  }
+
+  static String? mapEmptyField(Map<String, dynamic> map) {
+    String? emptyKey;
+
+    for (final key in map.keys.toList().reversed) {
+      if (map[key] == null || map[key].toString().isEmpty) {
+        emptyKey = key;
+      }
+    }
+
+    return emptyKey;
   }
 }

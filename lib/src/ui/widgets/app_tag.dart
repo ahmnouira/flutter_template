@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:eco_pat/src/theme/app_colors.dart';
-import 'package:eco_pat/src/theme/app_sizes.dart';
-import 'package:eco_pat/src/ui/widgets/app_text.dart';
+import 'package:flutter_template/src/theme/app_colors.dart';
+import 'package:flutter_template/src/theme/app_sizes.dart';
+import 'package:flutter_template/src/ui/widgets/app_text.dart';
 
 class AppTag extends StatelessWidget {
   final String title;

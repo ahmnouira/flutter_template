@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:eco_pat/src/theme/app_colors.dart';
-import 'package:eco_pat/src/theme/app_sizes.dart';
+import 'package:flutter_template/src/theme/app_colors.dart';
+import 'package:flutter_template/src/theme/app_sizes.dart';
 
 class AppTextFieldBase extends StatelessWidget {
   final TextEditingController controller;
@@ -13,6 +13,7 @@ class AppTextFieldBase extends StatelessWidget {
   final String? label;
   final bool textarea;
   final Widget? suffixIcon;
+  final bool? enabled;
 
   const AppTextFieldBase({
     super.key,
@@ -25,6 +26,7 @@ class AppTextFieldBase extends StatelessWidget {
     this.label,
     this.onTap,
     this.suffixIcon,
+    this.enabled,
   });
 
   @override
@@ -32,6 +34,7 @@ class AppTextFieldBase extends StatelessWidget {
     return TextField(
       controller: controller,
       readOnly: true,
+      enabled: enabled,
       cursorColor: AppColors.textField,
       onTap: onTap,
       decoration: InputDecoration(

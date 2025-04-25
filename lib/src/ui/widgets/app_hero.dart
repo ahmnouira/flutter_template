@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:eco_pat/src/assets/assets.dart';
-import 'package:eco_pat/src/ui/widgets/app_image.dart';
+import 'package:flutter_template/src/assets/assets.dart';
+import 'package:flutter_template/src/ui/widgets/app_image.dart';
 
 class AppHero extends StatelessWidget {
   final String image;

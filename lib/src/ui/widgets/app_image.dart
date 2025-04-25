@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:eco_pat/src/assets/assets.dart';
+import 'package:flutter_template/src/assets/assets.dart';
 
 class AppImage extends StatelessWidget {
   final String image;

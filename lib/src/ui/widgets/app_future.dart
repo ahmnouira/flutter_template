@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:eco_pat/src/theme/app_colors.dart';
-import 'package:eco_pat/src/ui/widgets/app_result.dart';
+import 'package:flutter_template/src/theme/app_colors.dart';
+import 'package:flutter_template/src/ui/widgets/app_result.dart';
 
-import './app_loading.dart';
+import 'app_loading.dart';
 
 class AppFuture<T> extends StatelessWidget {
   final Future<T>? future;

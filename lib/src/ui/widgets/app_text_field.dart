@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:eco_pat/src/theme/app_colors.dart';
-import 'package:eco_pat/src/theme/app_sizes.dart';
-import 'package:eco_pat/src/ui/widgets/app_text.dart';
+import 'package:flutter_template/src/theme/app_colors.dart';
+import 'package:flutter_template/src/theme/app_sizes.dart';
+import 'package:flutter_template/src/ui/widgets/app_text.dart';
 
 class AppTextField extends StatelessWidget {
   final TextEditingController? controller;
@@ -13,6 +14,9 @@ class AppTextField extends StatelessWidget {
   final String? label;
   final void Function()? onVisible;
   final bool textarea;
+  final bool highlight;
+  final bool? enabled;
+  final int? textareaLines;
 
   const AppTextField({
     super.key,
@@ -24,6 +28,9 @@ class AppTextField extends StatelessWidget {
     this.keyboardType = TextInputType.text,
     this.label,
     this.onVisible,
+    this.highlight = false,
+    this.enabled = true,
+    this.textareaLines,
   });
 
   const AppTextField.textarea({
@@ -32,10 +39,13 @@ class AppTextField extends StatelessWidget {
     this.controller,
     this.label,
     this.obscureText = false,
+    this.highlight = false,
     this.textarea = true,
     this.onChanged,
     this.onVisible,
     this.keyboardType,
+    this.enabled,
+    this.textareaLines = 4,
   });
 
   const AppTextField.email({
@@ -45,9 +55,12 @@ class AppTextField extends StatelessWidget {
     this.label = 'Email',
     this.obscureText = false,
     this.textarea = false,
+    this.highlight = false,
     this.onChanged,
     this.onVisible,
     this.keyboardType = TextInputType.emailAddress,
+    this.enabled,
+    this.textareaLines,
   });
 
   const AppTextField.password({
@@ -57,13 +70,33 @@ class AppTextField extends StatelessWidget {
     this.label = 'Mot de passe',
     this.obscureText = true,
     this.textarea = false,
+    this.highlight = false,
     this.onChanged,
     this.onVisible,
     this.keyboardType = TextInputType.visiblePassword,
+    this.enabled,
+    this.textareaLines,
+  });
+
+  const AppTextField.number({
+    super.key,
+    this.controller,
+    this.label,
+    this.textarea = false,
+    this.highlight = false,
+    this.onChanged,
+    this.onVisible,
+    this.keyboardType = TextInputType.number,
+    this.enabled,
+    this.textareaLines,
+    this.placeholder,
+    this.obscureText = false,
   });
 
   @override
   Widget build(BuildContext context) {
+    final isNumber = keyboardType == TextInputType.number;
+
     return Padding(
       padding: const EdgeInsets.only(top: AppSizes.md),
       child: Column(
@@ -75,15 +108,23 @@ class AppTextField extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: AppSizes.xs),
             ),
           TextField(
-            maxLines: textarea ? 4 : 1,
+            enabled: enabled,
+            onTapOutside: (event) {
+              FocusScope.of(context).unfocus();
+            },
+            inputFormatters:
+                isNumber ? [FilteringTextInputFormatter.digitsOnly] : [],
+            maxLines: textarea ? textareaLines : 1,
             controller: controller,
-            cursorColor: AppColors.black,
+            cursorColor: highlight ? AppColors.primary : AppColors.black,
             decoration: InputDecoration(
               hintText: placeholder ?? label,
               hintStyle: GoogleFonts.urbanist(
-                fontSize: 18.0,
-                fontWeight: FontWeight.w500,
-                color: Colors.black.withOpacity(0.5),
+                fontSize: highlight ? 21 : 18.0,
+                fontWeight: highlight ? FontWeight.w900 : FontWeight.w500,
+                color: highlight
+                    ? AppColors.primary
+                    : Colors.black.withOpacity(0.5),
               ),
               fillColor: AppColors.textField,
               filled: true,
@@ -114,14 +155,18 @@ class AppTextField extends StatelessWidget {
                   color: AppColors.textFieldBorder,
                 ),
               ),
+              disabledBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(
+                color: AppColors.textFieldBorder,
+              )),
             ),
             keyboardType: keyboardType,
             obscureText: obscureText,
             onChanged: onChanged,
             style: GoogleFonts.urbanist(
-              fontSize: 18.0,
-              fontWeight: FontWeight.w500,
-              color: AppColors.black,
+              fontSize: highlight ? 21 : 18.0,
+              fontWeight: highlight ? FontWeight.w900 : FontWeight.w500,
+              color: highlight ? AppColors.primary : AppColors.black,
             ),
           ),
         ],

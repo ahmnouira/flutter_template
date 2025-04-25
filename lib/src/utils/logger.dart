@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 
 class Logger<T> {
@@ -8,6 +10,16 @@ class Logger<T> {
   static void log(String message) {
     if (kDebugMode) {
       print(message);
+    }
+  }
+
+  static void json(Object data) {
+    try {
+      if (kDebugMode) {
+        print(jsonEncode(data));
+      }
+    } catch (e) {
+      error(e);
     }
   }
 

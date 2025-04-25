@@ -30,6 +30,7 @@ class MainTab extends StatelessWidget {
       bottomNavigationBar: AppBottomNavigator(
         currentIndex: provider.selectedTab,
         onTap: provider.goToTab,
+        items: tabs,
       ),
     );
   }

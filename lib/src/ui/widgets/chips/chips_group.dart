@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:eco_pat/src/ui/widgets/app_text.dart';
-import 'package:eco_pat/src/ui/widgets/chips/chip_widget.dart';
+import 'package:flutter_template/src/ui/widgets/app_text.dart';
+import 'package:flutter_template/src/ui/widgets/chips/chip_widget.dart';
 
 class ChipItem {
   final String title;

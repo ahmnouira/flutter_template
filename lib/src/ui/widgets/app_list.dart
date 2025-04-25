@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_template/src/theme/app_sizes.dart';
 
 class AppList<T> extends StatelessWidget {
   final List<T> items;
@@ -43,14 +44,16 @@ class AppList<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      physics: physics,
-      shrinkWrap: shrinkWrap,
-      itemCount: items.length,
-      primary: primary,
-      controller: controller,
-      scrollDirection: scrollDirection,
-      itemBuilder: (context, index) => builder(items[index], index),
-    );
+    return Scrollbar(
+        radius: const Radius.circular(AppSizes.xs),
+        child: ListView.builder(
+          physics: physics,
+          shrinkWrap: shrinkWrap,
+          itemCount: items.length,
+          primary: primary,
+          controller: controller,
+          scrollDirection: scrollDirection,
+          itemBuilder: (context, index) => builder(items[index], index),
+        ));
   }
 }

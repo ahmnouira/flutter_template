@@ -4,7 +4,7 @@ class AppColors {
   static const Color primary = Color(0xff91C120);
   static const Color primary2 = Color(0xff90BC29);
   static const Color herb = Color(0xffa2c846);
-  static const Color secondary = Color.fromRGBO(166, 123, 61, 255);
+  static const Color secondary = Color(0xffE1E1E1);
   static const Color white = Colors.white;
   static const Color black = Color(0xff1E232C);
   static const Color black2 = Color(0xff242A31);
@@ -17,4 +17,8 @@ class AppColors {
   static const Color chip = Color(0xffEFFAF5);
   static const Color bottomNavigationBar = Color(0xffEFFFF8);
   static const Color unselected = Color(0xff868686);
+  static const Color purple = Color(0xffc12091);
+  static const Color purple2 = Color(0xffff01ff);
+  static const Color blue = Color(0xff2091c1);
+  static const Color blue2 = Color(0xff4986e8);
 }

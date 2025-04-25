@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:eco_pat/src/ui/widgets/app_layout.dart';
-import 'package:eco_pat/src/utils/screen.dart';
+import 'package:flutter_template/src/ui/widgets/app_layout.dart';
+import 'package:flutter_template/src/utils/screen.dart';
 
 class AppPage<T> extends StatelessWidget {
   final String title;
@@ -11,6 +11,7 @@ class AppPage<T> extends StatelessWidget {
   final Widget? background;
   final Color? backgroundColor;
   final Widget? drawer;
+  final void Function()? onBack;
 
   const AppPage({
     super.key,
@@ -22,10 +23,32 @@ class AppPage<T> extends StatelessWidget {
     this.drawer,
     this.background,
     this.backgroundColor,
+    this.onBack,
   });
 
   @override
   Widget build(BuildContext context) {
+    // final user = AppAuthProvider.of(context, listen: true).user;
+    final hasDrawer = drawer != null;
+
+    AppBar? buildAppBar() {
+      AppBar? appBar;
+      if (showAppBar) {
+        if (hasDrawer) {
+          appBar = AppLayout.buildAppBarForDrawer();
+        } else if (simpleAppBar) {
+          appBar = AppLayout.buildSimpleAppBar(
+            title,
+            onPressed: onBack,
+          );
+        } else {
+          appBar = AppLayout.buildAppBar(title);
+        }
+      }
+
+      return appBar;
+    }
+
     return Stack(children: [
       Container(
         height: Screen.height,
@@ -34,11 +57,7 @@ class AppPage<T> extends StatelessWidget {
       ),
       Scaffold(
         backgroundColor: backgroundColor,
-        appBar: showAppBar
-            ? simpleAppBar
-                ? AppLayout.buildTransparentAppBar(title)
-                : AppLayout.buildAppBar(title)
-            : null,
+        appBar: buildAppBar(),
         body: SafeArea(
           child: child,
         ),

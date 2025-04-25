@@ -1,6 +1,6 @@
+import 'package:flutter_template/src/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:eco_pat/src/theme/app_colors.dart';
 
 class AppText extends StatelessWidget {
   final String text;
@@ -40,8 +40,8 @@ class AppText extends StatelessWidget {
     this.fontSize = 15,
     this.color = AppColors.error,
     this.fontWeight = FontWeight.w600,
-    this.textAlign = TextAlign.start,
-    this.maxLines = 1,
+    this.textAlign = TextAlign.center,
+    this.maxLines,
     this.softWrap,
     this.overflow,
     this.decorationStyle,

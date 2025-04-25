@@ -1,5 +1,5 @@
+import 'package:flutter_template/src/theme/app_sizes.dart';
 import 'package:flutter/material.dart';
-import 'package:eco_pat/src/theme/app_sizes.dart';
 
 class AppHSpace extends StatelessWidget {
   final double? width;

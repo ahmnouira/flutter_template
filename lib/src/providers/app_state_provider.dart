@@ -15,6 +15,12 @@ import 'package:provider/provider.dart';
 class AppStateProvider extends ChangeNotifier {
   /// keeps track of which tab the user tapped.
   int selectedTab = 0;
+  bool changed = false;
+
+  void setChanged({required bool value}) {
+    changed = value;
+    notifyListeners();
+  }
 
   void goToTab(int index) {
     selectedTab = index;

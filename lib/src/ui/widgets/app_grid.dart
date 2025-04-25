@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:eco_pat/src/theme/app_sizes.dart';
+import 'package:flutter_template/src/theme/app_sizes.dart';
 
 enum AppGridType { fixedCrossAxis, maxCrossAxis }
 
@@ -16,6 +16,7 @@ class AppGrid<T> extends StatelessWidget {
   final double crossAxisSpacing;
   final double mainAxisSpacing;
   final double maxCrossAxisExtent;
+  final double mainAxisExtent;
   final ScrollController? controller;
 
   const AppGrid(
@@ -28,6 +29,7 @@ class AppGrid<T> extends StatelessWidget {
       this.crossAxisSpacing = 0,
       this.mainAxisSpacing = 0,
       this.maxCrossAxisExtent = 500,
+      this.mainAxisExtent = 174,
       this.type = AppGridType.fixedCrossAxis,
       this.padding = const EdgeInsets.only(right: 8, left: 8),
       this.physics,
@@ -55,6 +57,7 @@ class AppGrid<T> extends StatelessWidget {
     this.crossAxisSpacing = 0,
     this.mainAxisSpacing = 0,
     this.maxCrossAxisExtent = 500,
+    this.mainAxisExtent = 174,
     this.type = AppGridType.fixedCrossAxis,
     this.padding = const EdgeInsets.only(right: 8, left: 8),
   });
@@ -62,14 +65,15 @@ class AppGrid<T> extends StatelessWidget {
   SliverGridDelegate _getGridDelegate() {
     if (type == AppGridType.maxCrossAxis) {
       return SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: maxCrossAxisExtent, mainAxisExtent: 174);
+          maxCrossAxisExtent: maxCrossAxisExtent,
+          mainAxisExtent: mainAxisExtent);
     } else {
       return SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: crossAxisCount,
           childAspectRatio: childAspectRatio,
           mainAxisSpacing: mainAxisSpacing,
           crossAxisSpacing: crossAxisSpacing,
-          mainAxisExtent: 174);
+          mainAxisExtent: mainAxisExtent);
     }
   }
 
