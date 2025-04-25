@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_template/src/theme/app_colors.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'app_bottom_navigator.item.dart';
 
@@ -37,11 +37,15 @@ class AppBottomNavigator extends StatelessWidget {
       currentIndex: currentIndex,
       onTap: onTap,
       unselectedLabelStyle: GoogleFonts.urbanist(
-          color: AppColors.unselected,
-          fontSize: 14,
-          fontWeight: FontWeight.w400),
+        color: AppColors.unselected,
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+      ),
       selectedLabelStyle: GoogleFonts.urbanist(
-          color: AppColors.primary, fontSize: 14, fontWeight: FontWeight.w500),
+        color: AppColors.primary,
+        fontSize: 14,
+        fontWeight: FontWeight.w500,
+      ),
       backgroundColor: AppColors.bottomNavigationBar,
       selectedItemColor: Theme.of(context).textSelectionTheme.selectionColor,
       items: _buildBottomNavigationBarItem(),

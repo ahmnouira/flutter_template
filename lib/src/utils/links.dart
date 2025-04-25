@@ -1,9 +1,10 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter_template/src/constants/app_data.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Links {
   Future<bool> terms() async {
-    final link = Uri.parse('https://lesmoutonsdelouest.fr/mentions-legales/');
+    final link = Uri.parse(AppData.legalPage);
 
     return _launchUrlSafe(url: link, fallback: link);
   }

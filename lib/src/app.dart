@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'app_providers.dart';
+import 'features/onboarding/screens/splash_screen.dart';
 import 'theme/app_theme.dart';
-import 'ui/layout/main_tab.dart';
 
-// The root widget of the app
 class App extends StatelessWidget {
-  /// Creates an [App] instance.
-  const App({super.key});
+  const App({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +16,18 @@ class App extends StatelessWidget {
 
     return AppProviders(
       child: MaterialApp(
-        // Hiding the debug banner,
         debugShowCheckedModeBanner: false,
-        title: 'FlutterApp',
+        title: 'Eco-Pat',
         theme: theme,
-        home: const MainTab(),
+        home: const SplashScreen(),
+        supportedLocales: const [
+          Locale('fr', 'FR'),
+        ],
+        localizationsDelegates: const [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
       ),
     );
   }

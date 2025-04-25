@@ -23,31 +23,29 @@ class AppBottomNavigatorMenu {
 
 final List<AppBottomNavigatorMenu> sharedMenu = [
   AppBottomNavigatorMenu(
-    name: 'Mon troupeau',
+    name: 'Items',
     image: Assets.liveStockIcon,
-    icon: Icon(Icons.pets),
+    icon: const Icon(
+      Icons.list,
+    ),
   ),
   AppBottomNavigatorMenu(
-    name: 'Mon profil',
+    name: 'Profile',
     image: Assets.profileIcon,
-    icon: Icon(Icons.person),
+    icon: const Icon(
+      Icons.person,
+    ),
   ),
 ];
 
 final List<AppBottomNavigatorMenu> userMenu = [
   sharedMenu.first,
-  AppBottomNavigatorMenu(
-      image: Assets.addIcon, name: 'Rapport', icon: Icon(Icons.notes)),
-  sharedMenu.last
+  sharedMenu.last,
 ];
 
 final List<AppBottomNavigatorMenu> adminMenu = [
   sharedMenu.first,
-  AppBottomNavigatorMenu(
-      image: Assets.addIcon, name: 'Ajouter', icon: Icon(Icons.add_box)),
-  AppBottomNavigatorMenu(
-      image: Assets.addIcon, name: 'Rapport', icon: Icon(Icons.notes)),
-  sharedMenu.last
+  sharedMenu.last,
 ];
 
 List<AppBottomNavigatorItem> buildMenu(List<AppBottomNavigatorMenu> list) {

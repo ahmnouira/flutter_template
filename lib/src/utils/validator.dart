@@ -1,3 +1,5 @@
+import 'package:flutter_template/src/constants/app_data.dart';
+
 class Validator {
   final String? name;
 
@@ -23,7 +25,7 @@ class Validator {
 
   static bool isValidEmail(String email) {
     return RegExp(
-      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@lesmoutonsdelouest.fr",
+      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@" + AppData.domain,
     ).hasMatch(email);
   }
 

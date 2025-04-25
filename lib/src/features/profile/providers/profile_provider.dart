@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../models/app_user.dart';
+import '../models/app_user_model.dart';
 
 class ProfileProvider extends ChangeNotifier {
   bool _didSelectUser = false;

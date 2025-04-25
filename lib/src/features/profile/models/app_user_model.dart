@@ -1,17 +1,17 @@
 /// AppUser: to avoid conflict with User from Firebase
 class AppUser {
   final String id;
+  final String uid;
   final String firstName;
   final String lastName;
   final String name;
   final String email;
-  final String site;
-  final String herd;
   final String username;
   final String avatar;
   final String phone;
   final bool darkMode;
-  final bool hasAccess;
+  final bool hasAccessAdmin;
+  final bool hasAccessBerger;
   final bool rememberMe;
 
   const AppUser({
@@ -25,11 +25,10 @@ class AppUser {
     this.phone = '',
     this.username = '',
     // new
-    this.site = '',
-    this.herd = '',
-    this.hasAccess = false,
+    this.hasAccessAdmin = false,
+    this.hasAccessBerger = false,
     this.rememberMe = false,
-  });
+  }) : uid = id; // if you prefer uid
 
   factory AppUser.fromJSON(Map<String, dynamic> json) => AppUser(
         id: json['id'] as String,
@@ -37,13 +36,14 @@ class AppUser {
         email: json['email'] as String,
         firstName: json['firstName'] as String,
         lastName: json['lastName'] as String,
-        hasAccess: json['hasAccess'],
-        rememberMe: json['rememberMe'],
+        hasAccessAdmin: json['hasAccessAdmin'] ?? false,
+        hasAccessBerger: json['hasAccessBerger'] ?? false,
+        rememberMe: json['rememberMe'] ?? false,
         darkMode: json['darkMode'] ?? false,
         avatar: json['avatar'] as String,
-        site: json['site'] as String,
-        herd: json['herd'] as String,
       );
+
+  factory AppUser.fromFirebase(Map<String, dynamic> json) => AppUser.empty();
 
   factory AppUser.empty() => const AppUser(
         id: '',
@@ -59,10 +59,9 @@ class AppUser {
     String? email,
     String? phone,
     String? avatar,
-    String? site,
-    String? herd,
     String? name,
-    bool? hasAccess,
+    bool? hasAccessAdmin,
+    bool? hasAccessBerger,
     bool? darkMode,
   }) {
     return AppUser(
@@ -74,9 +73,8 @@ class AppUser {
       phone: phone ?? this.phone,
       avatar: avatar ?? this.avatar,
       name: name ?? this.name,
-      site: site ?? this.site,
-      herd: herd ?? this.herd,
-      hasAccess: hasAccess ?? this.hasAccess,
+      hasAccessAdmin: hasAccessAdmin ?? this.hasAccessAdmin,
+      hasAccessBerger: hasAccessBerger ?? this.hasAccessBerger,
       darkMode: darkMode ?? this.darkMode,
     );
   }
@@ -90,12 +88,10 @@ class AppUser {
       'avatar': avatar,
       'phone': phone,
       'username': username,
-      'hasAccess': hasAccess,
+      'hasAccessAdmin': hasAccessAdmin,
+      'hasAccessBerger': hasAccessBerger,
       'rememberMe': rememberMe,
       'darkMode': darkMode,
-      // new fields
-      'site': site,
-      'herd': herd,
     };
   }
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/src/app_navigator.dart';
+import 'package:flutter_template/src/features/auth/ui/auth_page_widget.dart';
 import 'package:flutter_template/src/theme/app_colors.dart';
 import 'package:flutter_template/src/ui/widgets/app_hero.dart';
 import 'package:flutter_template/src/ui/widgets/app_link.dart';

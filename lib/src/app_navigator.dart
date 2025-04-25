@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_template/src/features/auth/screens/request_access_screen.dart';
 
 import 'features/auth/screens/login_screen.dart';
 import 'features/auth/screens/register_screen.dart';
@@ -6,7 +7,9 @@ import 'features/onboarding/screens/splash_screen.dart';
 import 'ui/layout/main_tab.dart';
 
 class AppNavigator {
-  const AppNavigator();
+  final String? name;
+
+  const AppNavigator({this.name});
 
   static void to(BuildContext context, Widget page) {
     Navigator.push(
@@ -46,7 +49,8 @@ class AppNavigator {
   static void mainTab(
     BuildContext context,
   ) {
-    to(context, const MainTab());
+    Navigator.popUntil(context, (route) => route.isFirst);
+    protected(context, 'userId', const MainTab(), replace: true, protect: true);
   }
 
   static void logout(BuildContext context) {
@@ -57,8 +61,21 @@ class AppNavigator {
     to(context, const LoginScreen());
   }
 
+  static void loginReplace(BuildContext context) {
+    replaceWith(context, const LoginScreen());
+  }
+
   static void register(BuildContext context) {
     to(context, const RegisterScreen());
+  }
+
+  static void requestAccess(BuildContext context, {required String uid}) {
+    to(
+      context,
+      RequestAccessScreen(
+        uid: uid,
+      ),
+    );
   }
 
   static void protected(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/src/features/profile/data/profile_service.dart';
+import 'package:flutter_template/src/ui/layout/app_bottom_navigator.item.dart'
+    show bottomNavigatorList;
 
 import '../../features/items/screens/items_screen.dart';
 import '../../features/profile/screens/profile_screen.dart';
@@ -9,9 +10,7 @@ import 'app_bottom_navigator.dart';
 
 final tabs = [
   const ItemsScreen(),
-  const ProfileScreen(
-    service: ProfileService(),
-  ),
+  const ProfileScreen(),
 ];
 
 class MainTab extends StatelessWidget {
@@ -30,7 +29,7 @@ class MainTab extends StatelessWidget {
       bottomNavigationBar: AppBottomNavigator(
         currentIndex: provider.selectedTab,
         onTap: provider.goToTab,
-        items: tabs,
+        items: bottomNavigatorList,
       ),
     );
   }

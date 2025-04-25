@@ -9,7 +9,8 @@ class AppData {
     'ahmnouira@gmail.com',
   ];
 
-  static const String landingPage = '';
+  static const String domain = '';
+  static const String landingPage = 'https://$domain';
   static const String legalPage = '$landingPage/';
 
   static const String remoteConfigKey = '';

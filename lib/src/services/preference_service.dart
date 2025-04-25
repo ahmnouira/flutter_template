@@ -1,9 +1,13 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../features/profile/models/app_user.dart';
+import '../utils/logger.dart';
 
 class PreferenceService {
-  Future<SharedPreferences> getInstance() async {
+  PreferenceService() {
+    Logger.log('PreferenceService');
+  }
+
+  Future<SharedPreferences> getInstance() {
     return SharedPreferences.getInstance();
   }
 
@@ -23,15 +27,40 @@ class PreferenceService {
     return instance.setString(key, value);
   }
 
+  Future<bool> addBool(String key, {required bool value}) async {
+    final instance = await getInstance();
+
+    return instance.setBool(key, value);
+  }
+
+  Future<bool> getBool(String key) async {
+    final instance = await getInstance();
+
+    final value = instance.getBool(key);
+
+    return value ?? false;
+  }
+
+  Future<bool> addList(String key, List<String> list) async {
+    final instance = await getInstance();
+
+    return instance.setStringList(key, list);
+  }
+
+  Future<List<String>> getList(String key) async {
+    final instance = await getInstance();
+
+    final list = instance.getStringList(key);
+    if (list == null) {
+      return <String>[];
+    }
+
+    return list;
+  }
+
   Future<bool> clear() async {
     final instance = await getInstance();
 
     return instance.clear();
-  }
-
-  Future<void> saveUser(AppUser user, String token) async {
-    final pref = await getInstance();
-    pref.setString('id', user.id);
-    pref.setString('token', token);
   }
 }
