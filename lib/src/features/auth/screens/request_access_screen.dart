@@ -28,7 +28,7 @@ class _RequestAccessScreenState extends State<RequestAccessScreen> {
     final userService = UserService();
     try {
       final user = await userService.get(widget.uid);
-      if (user.hasAccessAdmin || user.hasAccessBerger) {
+      if (user.hasAccessAdmin || user.hasAccessUser) {
         wait(() async {
           final provider = AppAuthProvider.of(context);
           await provider.login(user);

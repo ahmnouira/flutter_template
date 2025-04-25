@@ -58,11 +58,11 @@ List<ProfileItem> profileItems(
 
   String getRole() {
     late String role;
-    if (user.hasAccessAdmin && user.hasAccessBerger) {
+    if (user.hasAccessAdmin && user.hasAccessUser) {
       role = 'Admin, Berger';
     } else if (user.hasAccessAdmin) {
       role = 'Admin';
-    } else if (user.hasAccessBerger) {
+    } else if (user.hasAccessUser) {
       role = 'Berger';
     }
 
@@ -86,7 +86,7 @@ List<ProfileItem> profileItems(
           color: AppColors.grey,
         ),
       ),
-    if (user.hasAccessAdmin || user.hasAccessBerger)
+    if (user.hasAccessAdmin || user.hasAccessUser)
       ProfileItem(
         title: getRole(),
         icon: const Icon(

@@ -1,6 +1,10 @@
 import 'package:flutter_template/src/features/profile/models/app_user_model.dart';
 
 class AuthService {
+  bool get isLoggedIn => true;
+
+  AppUser get user => AppUser.mock();
+
   String handleError(Object error) {
     return error.toString();
   }

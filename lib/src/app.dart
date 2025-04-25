@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_template/src/constants/app_data.dart';
 
 import 'app_providers.dart';
 import 'features/onboarding/screens/splash_screen.dart';
@@ -17,10 +18,11 @@ class App extends StatelessWidget {
     return AppProviders(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Eco-Pat',
+        title: AppData.appTitle,
         theme: theme,
         home: const SplashScreen(),
         supportedLocales: const [
+          Locale('en', 'US'),
           Locale('fr', 'FR'),
         ],
         localizationsDelegates: const [

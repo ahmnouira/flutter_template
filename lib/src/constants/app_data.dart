@@ -8,7 +8,7 @@ class AppData {
   static const List<String> ownersDev = [
     'ahmnouira@gmail.com',
   ];
-
+  static const String appTitle = 'AppTitle';
   static const String domain = '';
   static const String landingPage = 'https://$domain';
   static const String legalPage = '$landingPage/';

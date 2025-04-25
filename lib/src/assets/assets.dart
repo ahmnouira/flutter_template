@@ -4,7 +4,7 @@ class Assets {
   static const config = 'assets/config';
 
   static const String welcomeHero = '$images/welcome.jpg';
-  static const String logo = '$images/logo.png';
+  static const String logo = welcomeHero; // '$images/logo.png';
   static const String logoDrawer = '$images/logo-drawer.png';
   static const String success = '$images/success.png';
   static const String empty = '$images/empty.png';

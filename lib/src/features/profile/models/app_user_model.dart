@@ -11,7 +11,7 @@ class AppUser {
   final String phone;
   final bool darkMode;
   final bool hasAccessAdmin;
-  final bool hasAccessBerger;
+  final bool hasAccessUser;
   final bool rememberMe;
 
   const AppUser({
@@ -26,7 +26,7 @@ class AppUser {
     this.username = '',
     // new
     this.hasAccessAdmin = false,
-    this.hasAccessBerger = false,
+    this.hasAccessUser = false,
     this.rememberMe = false,
   }) : uid = id; // if you prefer uid
 
@@ -37,7 +37,7 @@ class AppUser {
         firstName: json['firstName'] as String,
         lastName: json['lastName'] as String,
         hasAccessAdmin: json['hasAccessAdmin'] ?? false,
-        hasAccessBerger: json['hasAccessBerger'] ?? false,
+        hasAccessUser: json['hasAccessUser'] ?? false,
         rememberMe: json['rememberMe'] ?? false,
         darkMode: json['darkMode'] ?? false,
         avatar: json['avatar'] as String,
@@ -51,6 +51,17 @@ class AppUser {
         email: '',
       );
 
+  factory AppUser.mock() => const AppUser(
+        id: 'id',
+        name: 'Ahmed',
+        email: 'ahmnouira@gmail.com',
+        darkMode: true,
+        rememberMe: true,
+        hasAccessAdmin: true,
+        hasAccessUser: true,
+        avatar: '',
+      );
+
   AppUser copyWith({
     String? id,
     String? firstName,
@@ -61,7 +72,7 @@ class AppUser {
     String? avatar,
     String? name,
     bool? hasAccessAdmin,
-    bool? hasAccessBerger,
+    bool? hasAccessUser,
     bool? darkMode,
   }) {
     return AppUser(
@@ -74,7 +85,7 @@ class AppUser {
       avatar: avatar ?? this.avatar,
       name: name ?? this.name,
       hasAccessAdmin: hasAccessAdmin ?? this.hasAccessAdmin,
-      hasAccessBerger: hasAccessBerger ?? this.hasAccessBerger,
+      hasAccessUser: hasAccessUser ?? this.hasAccessUser,
       darkMode: darkMode ?? this.darkMode,
     );
   }
@@ -89,7 +100,7 @@ class AppUser {
       'phone': phone,
       'username': username,
       'hasAccessAdmin': hasAccessAdmin,
-      'hasAccessBerger': hasAccessBerger,
+      'hasAccessUser': hasAccessUser,
       'rememberMe': rememberMe,
       'darkMode': darkMode,
     };

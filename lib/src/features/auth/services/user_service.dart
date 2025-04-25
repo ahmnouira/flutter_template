@@ -10,7 +10,7 @@ class UserService {
 
   /// Getting [AppUser]
   Future<AppUser> get(String uid) async {
-    return AppUser.empty();
+    return AppUser.mock();
   }
 
   /// Deleting [AppUser]

@@ -62,7 +62,7 @@ class _RegisterFormState extends State<RegisterForm> {
     }
 
     final user = await userService.get(firebaseUser.uid);
-    if (user.hasAccessAdmin || user.hasAccessBerger) {
+    if (user.hasAccessAdmin || user.hasAccessUser) {
       final provider = AppAuthProvider();
       await provider.login(user);
       delayMilliseconds(
