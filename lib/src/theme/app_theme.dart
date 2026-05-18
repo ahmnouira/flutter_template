@@ -68,11 +68,10 @@ class AppTheme {
       useMaterial3: false,
       brightness: Brightness.light,
       primaryColor: AppColors.primary,
-      buttonTheme: const ButtonThemeData(
-        buttonColor: AppColors.primary,
+      buttonTheme: const ButtonThemeData(buttonColor: AppColors.primary),
+      progressIndicatorTheme: const ProgressIndicatorThemeData(
+        color: Colors.white,
       ),
-      progressIndicatorTheme:
-          const ProgressIndicatorThemeData(color: Colors.white),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         selectedItemColor: AppColors.primary,
       ),
@@ -86,15 +85,14 @@ class AppTheme {
         backgroundColor: AppColors.white,
       ),
       checkboxTheme: CheckboxThemeData(
-        fillColor: WidgetStateColor.resolveWith(
-          (states) => AppColors.black,
-        ),
+        fillColor: WidgetStateColor.resolveWith((states) => AppColors.black),
       ),
     );
   }
 
   static ThemeData dark() {
     return ThemeData(
+      useMaterial3: false,
       brightness: Brightness.dark,
       appBarTheme: const AppBarTheme(
         foregroundColor: AppColors.white,

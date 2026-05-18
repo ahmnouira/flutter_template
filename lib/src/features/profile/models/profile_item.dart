@@ -8,9 +8,10 @@ class ProfileItem {
   final Icon? icon;
   final ProfileItemContext? context;
 
-  const ProfileItem(
-      {required this.title,
-      this.onClick = Future.value,
-      this.icon,
-      this.context});
+  const ProfileItem({
+    required this.title,
+    this.onClick = Future.value,
+    this.icon,
+    this.context,
+  });
 }

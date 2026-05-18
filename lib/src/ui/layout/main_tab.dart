@@ -8,10 +8,7 @@ import '../../providers/app_state_provider.dart';
 
 import 'app_bottom_navigator.dart';
 
-final tabs = [
-  const ItemsScreen(),
-  const ProfileScreen(),
-];
+final tabs = [const ItemsScreen(), const ProfileScreen()];
 
 class MainTab extends StatelessWidget {
   const MainTab({super.key});
@@ -21,9 +18,7 @@ class MainTab extends StatelessWidget {
     final provider = AppStateProvider.of(context, listen: true);
 
     return Scaffold(
-      body: Container(
-        child: tabs[provider.selectedTab],
-      ),
+      body: Container(child: tabs[provider.selectedTab]),
       //  floatingActionButton: const FloatingActionButtonWidget(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: AppBottomNavigator(

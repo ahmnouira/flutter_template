@@ -82,6 +82,6 @@ class ProfileConsumer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Consumer<ProfileProvider>(
-        builder: (_, provider, __) => builder(provider),
-      );
+    builder: (_, provider, __) => builder(provider),
+  );
 }

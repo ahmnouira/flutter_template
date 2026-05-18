@@ -7,9 +7,7 @@ import 'features/onboarding/screens/splash_screen.dart';
 import 'theme/app_theme.dart';
 
 class App extends StatelessWidget {
-  const App({
-    super.key,
-  });
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +19,7 @@ class App extends StatelessWidget {
         title: AppData.appTitle,
         theme: theme,
         home: const SplashScreen(),
-        supportedLocales: const [
-          Locale('en', 'US'),
-          Locale('fr', 'FR'),
-        ],
+        supportedLocales: const [Locale('en', 'US'), Locale('fr', 'FR')],
         localizationsDelegates: const [
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,

@@ -31,28 +31,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
           child: Column(
             children: [
               const AppVSpace.x3(),
-              const AppHero(
-                tag: 'logo-drawer',
-                image: Assets.logoDrawer,
-              ),
-              ProfileMenu(
-                user: user,
-              ),
+              const AppHero(tag: 'logo-drawer', image: Assets.logoDrawer),
+              ProfileMenu(user: user),
               const AppVSpace(),
             ],
           ),
         ),
       ),
       builder: (user) {
-        return AuthPageWidget(children: [
-          const AppHero(),
-          TitleWidget(
-            text:
-                'Bonjour${user.firstName.length > 1 ? ' ${user.firstName.capitalize()}' : ''} !',
-            subtitle:
-                "Bienvenue dans l'équipe des Bergers et Bergères des Moutons de l'Ouest. Nous sommes fiers de partager nos valeurs autour de l'écologie, du bien-être animal et de la satisfaction client : c’est ce qui nous animent au quotidien !\nPrends soin de tes bêtes et sois vigilant(e) sur la route",
-          ),
-        ]);
+        return AuthPageWidget(
+          children: [
+            const AppHero(),
+            TitleWidget(
+              text:
+                  'Bonjour${user.firstName.length > 1 ? ' ${user.firstName.capitalize()}' : ''} !',
+              subtitle:
+                  "Bienvenue dans l'équipe des Bergers et Bergères des Moutons de l'Ouest. Nous sommes fiers de partager nos valeurs autour de l'écologie, du bien-être animal et de la satisfaction client : c’est ce qui nous animent au quotidien !\nPrends soin de tes bêtes et sois vigilant(e) sur la route",
+            ),
+          ],
+        );
       },
     );
   }

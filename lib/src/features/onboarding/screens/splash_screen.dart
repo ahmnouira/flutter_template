@@ -23,9 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-    ]);
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     checkUer();
   }
 
@@ -33,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
     final auth = AuthService();
     if (auth.isLoggedIn) {
       final user = await UserService().get(auth.user!.uid);
-      print(user);
+
       if (user.hasAccessAdmin || user.hasAccessUser) {
         wait(() async {
           final provider = AppAuthProvider.of(context);
@@ -78,15 +76,9 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const AppHero(
-                width: 290,
-                height: 280,
-              ),
+              const AppHero(width: 290, height: 280),
               const AppVSpace(),
-              if (_loading)
-                const AppLoading(
-                  color: AppColors.primary,
-                ),
+              if (_loading) const AppLoading(color: AppColors.primary),
             ],
           ),
         ),

@@ -3,8 +3,8 @@ import 'package:flutter_template/src/assets/assets.dart';
 import 'package:flutter_template/src/ui/widgets/app_image.dart';
 
 class AppHero extends StatelessWidget {
-  final String image;
   final String tag;
+  final String? image;
   final double? height;
   final double? width;
 
@@ -20,11 +20,7 @@ class AppHero extends StatelessWidget {
   Widget build(BuildContext context) {
     return Hero(
       tag: tag,
-      child: AppImage(
-        image: image,
-        height: height,
-        width: width,
-      ),
+      child: AppImage(image: image, height: height, width: width),
     );
   }
 }

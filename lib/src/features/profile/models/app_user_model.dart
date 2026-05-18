@@ -31,36 +31,32 @@ class AppUser {
   }) : uid = id; // if you prefer uid
 
   factory AppUser.fromJSON(Map<String, dynamic> json) => AppUser(
-        id: json['id'] as String,
-        name: json['name'] as String,
-        email: json['email'] as String,
-        firstName: json['firstName'] as String,
-        lastName: json['lastName'] as String,
-        hasAccessAdmin: json['hasAccessAdmin'] ?? false,
-        hasAccessUser: json['hasAccessUser'] ?? false,
-        rememberMe: json['rememberMe'] ?? false,
-        darkMode: json['darkMode'] ?? false,
-        avatar: json['avatar'] as String,
-      );
+    id: json['id'] as String,
+    name: json['name'] as String,
+    email: json['email'] as String,
+    firstName: json['firstName'] as String,
+    lastName: json['lastName'] as String,
+    hasAccessAdmin: json['hasAccessAdmin'] ?? false,
+    hasAccessUser: json['hasAccessUser'] ?? false,
+    rememberMe: json['rememberMe'] ?? false,
+    darkMode: json['darkMode'] ?? false,
+    avatar: json['avatar'] as String,
+  );
 
   factory AppUser.fromFirebase(Map<String, dynamic> json) => AppUser.empty();
 
-  factory AppUser.empty() => const AppUser(
-        id: '',
-        name: '',
-        email: '',
-      );
+  factory AppUser.empty() => const AppUser(id: '', name: '', email: '');
 
   factory AppUser.mock() => const AppUser(
-        id: 'id',
-        name: 'Ahmed',
-        email: 'ahmnouira@gmail.com',
-        darkMode: true,
-        rememberMe: true,
-        hasAccessAdmin: true,
-        hasAccessUser: true,
-        avatar: '',
-      );
+    id: 'id',
+    name: 'Ahmed',
+    email: 'ahmnouira@gmail.com',
+    darkMode: true,
+    rememberMe: true,
+    hasAccessAdmin: true,
+    hasAccessUser: true,
+    avatar: '',
+  );
 
   AppUser copyWith({
     String? id,

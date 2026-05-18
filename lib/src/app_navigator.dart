@@ -14,9 +14,7 @@ class AppNavigator {
   static void to(BuildContext context, Widget page) {
     Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (BuildContext context) => page,
-      ),
+      MaterialPageRoute(builder: (BuildContext context) => page),
     );
   }
 
@@ -25,8 +23,9 @@ class AppNavigator {
   }
 
   static void replaceWith(BuildContext context, Widget page) {
-    Navigator.of(context)
-        .pushReplacement(MaterialPageRoute(builder: (context) => page));
+    Navigator.of(
+      context,
+    ).pushReplacement(MaterialPageRoute(builder: (context) => page));
   }
 
   static void protectedNavigateTo(
@@ -46,9 +45,7 @@ class AppNavigator {
     }
   }
 
-  static void mainTab(
-    BuildContext context,
-  ) {
+  static void mainTab(BuildContext context) {
     Navigator.popUntil(context, (route) => route.isFirst);
     protected(context, 'userId', const MainTab(), replace: true, protect: true);
   }
@@ -70,12 +67,7 @@ class AppNavigator {
   }
 
   static void requestAccess(BuildContext context, {required String uid}) {
-    to(
-      context,
-      RequestAccessScreen(
-        uid: uid,
-      ),
-    );
+    to(context, RequestAccessScreen(uid: uid));
   }
 
   static void protected(

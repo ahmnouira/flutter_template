@@ -43,10 +43,6 @@ class _DialogButtonState extends State<DialogButton> {
       secondary: widget.secondary,
     );
 
-    return widget.expanded
-        ? Expanded(
-            child: button,
-          )
-        : button;
+    return widget.expanded ? Expanded(child: button) : button;
   }
 }

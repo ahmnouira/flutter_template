@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_template/src/assets/assets.dart';
 
 class AppImage extends StatelessWidget {
-  final String image;
+  final String? image;
   final double? height;
   final double? width;
 
@@ -18,10 +18,7 @@ class AppImage extends StatelessWidget {
     return SizedBox(
       height: height,
       width: width,
-      child: Image.asset(
-        image,
-        fit: BoxFit.contain,
-      ),
+      child: image != null ? Image.asset(image!, fit: BoxFit.contain) : null,
     );
   }
 }

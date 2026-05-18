@@ -12,29 +12,17 @@ class AppBottomNavigatorItem {
 
 class AppBottomNavigatorMenu {
   final String name;
-  final String image;
+  final String? image;
   final Widget? icon;
-  AppBottomNavigatorMenu({
-    required this.name,
-    required this.image,
-    this.icon,
-  });
+  AppBottomNavigatorMenu({required this.name, this.image, this.icon});
 }
 
 final List<AppBottomNavigatorMenu> sharedMenu = [
-  AppBottomNavigatorMenu(
-    name: 'Items',
-    image: Assets.liveStockIcon,
-    icon: const Icon(
-      Icons.list,
-    ),
-  ),
+  AppBottomNavigatorMenu(name: 'Items', icon: const Icon(Icons.list)),
   AppBottomNavigatorMenu(
     name: 'Profile',
     image: Assets.profileIcon,
-    icon: const Icon(
-      Icons.person,
-    ),
+    icon: const Icon(Icons.person),
   ),
 ];
 
@@ -52,13 +40,9 @@ List<AppBottomNavigatorItem> buildMenu(List<AppBottomNavigatorMenu> list) {
   return list
       .map(
         (item) => AppBottomNavigatorItem(
-          icon: item.icon ??
-              AppHero(
-                height: 26,
-                width: 26,
-                image: item.image,
-                tag: item.name,
-              ),
+          icon:
+              item.icon ??
+              AppHero(height: 26, width: 26, image: item.image, tag: item.name),
           label: item.name,
         ),
       )
