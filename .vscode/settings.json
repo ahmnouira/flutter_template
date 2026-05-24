@@ -1,4 +1,10 @@
 {
-  "cSpell.words": ["avds", "firestore", "RGBO"],
-  "java.configuration.updateBuildConfiguration": "automatic"
+  "cSpell.words": [
+    "avds",
+    "firestore",
+    "playstore",
+    "pubspec",
+    "RGBO",
+    "xcassets"
+  ]
 }
